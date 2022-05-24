@@ -11,8 +11,10 @@ const Calendar = ({journal}) => {
   const month = now.getMonth() + 1;
   const year = now.getFullYear();
 
+  const today = now.getDate();
+
   useEffect(() => {
-    setCalendarData(populateCalendar(year, 12));
+    setCalendarData(populateCalendar(year, month));
     setInputYear(() => year.toString());
   }, []);
 
@@ -40,6 +42,7 @@ const Calendar = ({journal}) => {
                   year={inputYear}
                   calendarData={data}
                   journal={journal}
+                  today={today}
                 />
               ))}
             </View>
