@@ -13,31 +13,6 @@ const monthsLong = [
   'December',
 ];
 
-const monthsShort = [
-  'jan',
-  'feb',
-  'mar',
-  'apr',
-  'may',
-  'jun',
-  'jul',
-  'aug',
-  'sep',
-  'oct',
-  'nov',
-  'dec',
-];
-
-const daysOfTheWeekLong = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-];
-
 const daysOfTheWeekShort = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-export {daysOfTheWeekShort, monthsShort, monthsLong, daysOfTheWeekLong};
+export {daysOfTheWeekShort, monthsLong};

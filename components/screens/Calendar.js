@@ -2,15 +2,16 @@ import React, {useEffect, useState} from 'react';
 import {View, ScrollView, Text, StyleSheet} from 'react-native';
 import populateCalendar from '../utils/populateCalendar';
 import CalendarRow from '../reusables/CalendarRow';
+import {monthsLong} from '../utils/getDateData';
 
 const Calendar = ({journal}) => {
   const [calendarData, setCalendarData] = useState([]);
   const [inputYear, setInputYear] = useState(new Date().getFullYear());
+  const now = new Date();
+  const month = now.getMonth() + 1;
+  const year = now.getFullYear();
 
   useEffect(() => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth() + 1;
     setCalendarData(populateCalendar(year, 12));
     setInputYear(() => year.toString());
   }, []);
@@ -20,6 +21,9 @@ const Calendar = ({journal}) => {
       <View style={styles.parent}>
         <ScrollView>
           <View style={styles.calendar}>
+            <Text style={styles.monthYear}>{`${
+              monthsLong[month - 1]
+            }, ${year}`}</Text>
             <View style={styles.weekdays}>
               <Text style={styles.weekday}>Mon</Text>
               <Text style={styles.weekday}>Tue</Text>
@@ -57,7 +61,12 @@ const styles = StyleSheet.create({
   calendar: {
     paddingHorizontal: 8,
   },
-
+  monthYear: {
+    marginHorizontal: 5,
+    marginTop: 30,
+    fontSize: 30,
+    fontWeight: '500',
+  },
   weekdays: {
     flexDirection: 'row',
     justifyContent: 'space-around',

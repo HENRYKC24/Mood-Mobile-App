@@ -25,8 +25,8 @@ const App = () => {
       date: 6,
     },
     {
-      mood: 'good',
-      date: 19,
+      mood: 'bad',
+      date: 27,
     },
   ];
   return (
