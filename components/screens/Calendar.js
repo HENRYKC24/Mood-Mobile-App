@@ -16,9 +16,9 @@ const Calendar = ({journal}) => {
     setInputYear(() => year.toString());
   }, []);
 
-  return calendarData[0] ? (
+  return (
     <View style={styles.wrapper}>
-      <View>
+      <View style={styles.parent}>
         <ScrollView>
           <View style={styles.calendar}>
             <View style={styles.weekdays}>
@@ -31,27 +31,29 @@ const Calendar = ({journal}) => {
               <Text style={styles.weekday}>Sun</Text>
             </View>
             <View style={styles.rows}>
-              {calendarData.map(data => {
-                return data ? (
-                  <CalendarRow
-                    key={Math.random()}
-                    year={inputYear}
-                    calendarData={data}
-                    journal={journal}
-                  />
-                ) : null;
-              })}
+              {calendarData.map(data => (
+                <CalendarRow
+                  key={Math.random()}
+                  year={inputYear}
+                  calendarData={data}
+                  journal={journal}
+                />
+              ))}
             </View>
           </View>
         </ScrollView>
       </View>
     </View>
-  ) : null;
+  );
 };
 
 const styles = StyleSheet.create({
   wrapper: {
+    flexGrow: 1,
     height: '100%',
+  },
+  parent: {
+    flexGrow: 1,
   },
   calendar: {
     paddingHorizontal: 8,
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   weekday: {
-    fontWeight: '500',
+    // fontWeight: '900',
     alignSelf: 'center',
     fontSize: 18,
     width: '14%',
