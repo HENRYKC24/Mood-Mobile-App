@@ -3,7 +3,6 @@ import {View, StyleSheet} from 'react-native';
 import Date from './Date';
 
 const CalendarRow = ({calendarData, year, journal}) => {
-  console.log(calendarData, '^^^^^^^^^');
   return (
     <View style={styles.dateRow}>
       {calendarData.map(data => (
@@ -22,10 +21,9 @@ const styles = StyleSheet.create({
   dateRow: {
     flexDirection: 'row',
     width: '100%',
-    height: '20%',
+    height: 80,
     alignItems: 'flex-end',
     marginVertical: '2%',
-    // borderWidth: 1,
   },
 });
 

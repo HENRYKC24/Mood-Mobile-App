@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {View, ScrollView, Text, StyleSheet} from 'react-native';
 import populateCalendar from '../utils/populateCalendar';
 import CalendarRow from '../reusables/CalendarRow';
-// import {monthsShort} from '../utils/getDateData';
 
 const Calendar = ({journal}) => {
   const [calendarData, setCalendarData] = useState([]);
@@ -65,14 +64,14 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   weekday: {
-    // fontWeight: '900',
+    fontWeight: '500',
     alignSelf: 'center',
     fontSize: 18,
     width: '14%',
     textAlign: 'center',
   },
   rows: {
-    height: '80%',
+    height: '100%',
   },
 });
 

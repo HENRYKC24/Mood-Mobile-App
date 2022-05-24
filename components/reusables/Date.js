@@ -5,12 +5,13 @@ import Okay from '../../assets/images/okay.png';
 import Bad from '../../assets/images/bad.png';
 const Date = ({calendarData, journal}) => {
   const journalDates = journal.map(mood => mood.date);
-  console.log(journalDates, 'Journal dates');
   let mood = '';
+
   if (journalDates.includes(calendarData)) {
     const journalData = journal[journalDates.indexOf(calendarData)];
     mood = journalData.mood;
   }
+
   return calendarData ? (
     <View Text style={styles.date}>
       {mood === 'bad' ? (
