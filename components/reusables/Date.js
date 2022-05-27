@@ -3,9 +3,13 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import Good from '../../assets/images/good.png';
 import Okay from '../../assets/images/okay.png';
 import Bad from '../../assets/images/bad.png';
-const Date = ({calendarData, journal}) => {
+const Date = ({calendarData, journal, todayObj}) => {
   const journalDates = journal.map(mood => mood.date);
   let mood = '';
+
+  const {today, month, year, m, y} = todayObj;
+
+  const isToday = today === calendarData && m === month && y === year;
 
   if (journalDates.includes(calendarData)) {
     const journalData = journal[journalDates.indexOf(calendarData)];
@@ -23,7 +27,9 @@ const Date = ({calendarData, journal}) => {
       ) : (
         <Text style={styles.emptyImage}></Text>
       )}
-      <Text style={styles.text}>{calendarData}</Text>
+      <Text style={[styles.text, isToday ? styles.today : '']}>
+        {calendarData}
+      </Text>
     </View>
   ) : null;
 };
@@ -38,6 +44,9 @@ const styles = StyleSheet.create({
   },
   image: {
     marginBottom: -8,
+  },
+  today: {
+    fontWeight: '800',
   },
 });
 

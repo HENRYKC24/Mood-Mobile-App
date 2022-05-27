@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import Calendar from './components/screens/Calendar';
@@ -25,8 +17,8 @@ const App = () => {
       date: 6,
     },
     {
-      mood: 'good',
-      date: 19,
+      mood: 'bad',
+      date: 27,
     },
   ];
   return (

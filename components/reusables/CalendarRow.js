@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Date from './Date';
 
-const CalendarRow = ({calendarData, year, journal}) => {
+const CalendarRow = ({calendarData, year, journal, todayObj}) => {
   return (
     <View style={styles.dateRow}>
       {calendarData.map(data => (
@@ -11,6 +11,7 @@ const CalendarRow = ({calendarData, year, journal}) => {
           journal={journal}
           calendarData={data}
           year={year}
+          todayObj={todayObj}
         />
       ))}
     </View>
